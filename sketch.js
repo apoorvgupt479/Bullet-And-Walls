@@ -5,7 +5,7 @@ function setup() {
   createCanvas(1600, 400);
   
   //speed and weight
-  speed = random(223,321);
+  speed = random(23,32);
   weight = random(30,52);
   thickness = random(22,83);
   //sprites
@@ -23,7 +23,7 @@ function draw() {
 	  if (hasCollided(bullet,wall)) {
 		  
 		//bullet pos
-		bullet.x = wall.x-((wall.width/2)+(bullet.width/2));
+		bullet.x = 1+wall.x-((wall.width/2)+(bullet.width/2));
 		
 		//damage
 		damage = (0.5 * weight * speed * speed) / (thickness * thickness * thickness);
@@ -35,11 +35,23 @@ function draw() {
 		  else if (damage <= 10)
 		{
 		  wall.shapeColor = "green";
-		} 
+		}
+		
+		if(keyWentDown("space")){
+		speed = random(23,32);
+		weight = random(30,52);
+		thickness = random(22,83);
+		
+		wall.shapeColor = (80,80,80);
+		bullet.shapeColor = "white";
+		
+		bullet.x = 50;
+		}
 	 } 
-	 else
+	 else if(keyDown("space")&&hasCollided(bullet,wall)=== false)
 		bullet.velocityX = speed;
-	
+
+	console.log(hasCollided(bullet,wall));
   drawSprites();
 }
 
