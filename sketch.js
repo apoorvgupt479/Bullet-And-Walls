@@ -38,7 +38,7 @@ function draw() {
 		}
 		
 		if(keyWentDown("space")){
-		speed = random(23,32);
+		speed = random(150,300);
 		weight = random(30,52);
 		thickness = random(22,83);
 		
